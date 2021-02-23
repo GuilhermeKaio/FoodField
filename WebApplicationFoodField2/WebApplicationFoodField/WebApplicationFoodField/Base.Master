@@ -1,0 +1,231 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Base.master.cs" Inherits="WebApplicationFoodField.Base" %>
+
+<!DOCTYPE html>
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="js/jquery.mask.js"></script>
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<script src="js/main.js"></script>
+
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="images/icons/favicon1.ico" />
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css" />
+<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css" />
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css" />
+<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css" />
+<link rel="stylesheet" type="text/css" href="css/util.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link href="Style.css" rel="stylesheet" />
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-family: sans-serif;
+    }
+
+    img[src=""] {
+        display: none;
+    }
+
+    .imageNavbarD {
+        position: absolute;
+        left: 163px;
+        top: 15px;
+        height: 91.5px;
+        width: 47.25px;
+    }
+
+    .imageNavbarA {
+        position: absolute;
+        left: 20px;
+        top: 15px;
+        height: 109px;
+        width: 147px;
+    }
+
+    #sidebar {
+        position: fixed;
+        width: 225px;
+        height: 100%;
+        background: #324237;
+        left: -150px;
+        top: 0px;
+        transition: all 350ms linear;
+    }
+
+        #sidebar.active {
+            left: 0px;
+        }
+
+        #sidebar ul {
+            padding - top : 121px;
+        }
+
+            #sidebar ul li {
+                color: #ffffff;
+                padding: 15px 40px;
+            }
+
+        #sidebar .toggle-btn {
+            position: absolute;
+            left: 133px;
+            top: 0px;
+            height: 100%;
+            background: #324237;
+            padding: 15px;
+        }
+
+    #navbar {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 110px;
+        background: #B4E5C8;
+        z-index: 2;
+    }
+
+    #base {
+        position: absolute;
+        left: 85px;
+        top: 120px;
+    }
+
+    .aa {
+        position: relative;
+        top: 25%;
+        margin-right: 1.5%;
+    }
+
+    .saldo {
+        position: relative;
+        top: 30%;
+        margin-right: 1.5%;
+    }
+
+    .user {
+        width: 60px;
+        position: relative;
+        top: 17%;
+        margin-right: 1.5%;
+    }
+
+    .login-form-btn {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        height: 40px;
+        background-color: #324237;
+        border-radius: 25px;
+        font-family: Ubuntu-Bold;
+        font-size: 15px;
+        color: #fff;
+        line-height: 1.2;
+        text-transform: uppercase;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+
+        .login-form-btn:hover {
+            background-color: #B4E5C8;
+        }
+        body {
+  background-color: #f0f0f0;
+}
+</style>
+
+<html>
+<script type="text/javascript">
+    var newsrc = "1";
+    function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle('active');
+        if (newsrc == "2") {
+            document.getElementById("imageNavbar").src = "/Imagens/Food-Field_FF.png";
+            document.getElementById("imageNavbar").className = "imageNavbarD";
+            newsrc = "1";
+        }
+        else {
+            document.getElementById("imageNavbar").src = "/Imagens/Food-Field_Logo.png";
+            document.getElementById("imageNavbar").className = "imageNavbarA";
+            newsrc = "2";
+        }
+    }
+    $(document).ready(function () {
+        $("#TextBox1").mask("000000,00", {reverse: true});
+    })
+</script>
+
+<head>
+    <link href="CSS/Bootstrap.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <script src="scripts/JS/Bootstrap.js"></script>
+    <form id="form2" runat="server">
+        <div id="navbar">
+
+            <asp:ImageButton ID="ImageButton1" runat="server" CssClass="img-circle pull-right user" ImageUrl="~/Imagens/user.jpg" OnClick="ImageButton1_Click" />
+            <a href="#" data-toggle="modal" data-target="#ModalSaldo"><asp:Label ID="Label1" CssClass="pull-right saldo" runat="server" Text="0"></asp:Label></a>
+            <asp:Button ID="Button1" runat="server" CssClass="login-form-btn pull-right aa" Text="Sair" OnClick="Button1_Click" />
+            <asp:Button ID="Button2" runat="server" CssClass="login-form-btn pull-right aa" Text="Loja de Pacotes" OnClick="Button2_Click" />
+            <asp:Button ID="Button3" runat="server" CssClass="login-form-btn pull-right aa" Text="Seus Pacotes" OnClick="Button3_Click" />
+        </div>
+
+        <div id="sidebar">
+            <img src="/Imagens/Food-Field_FF.png" id="imageNavbar" class="imageNavbarD" onclick="toggleSidebar()" />
+            <ul>
+                <li>
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/WebForm1.aspx" runat="server">Usuarios</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="HyperLink2" NavigateUrl="~/WebForm3.aspx" runat="server">Pacotes</asp:HyperLink>
+                </li>
+                <li>
+                    <asp:HyperLink ID="HyperLink3" runat="server">Donec egestas.</asp:HyperLink>
+                </li>
+            </ul>
+
+        </div>
+        <div id="base">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        
+        <div class="modal fade" id="ModalSaldo">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="margin-10 center-block">
+                    <asp:Label runat="server" ID="Label8" CssClass="txt3" Text="Quanto você deseja adicionar ao seu saldo?"></asp:Label><br />
+                    <asp:TextBox ID="TextBox1" runat="server" CssClass="input50-35-m5"></asp:TextBox>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="Button4" runat="server" Text="Confirmar" OnClick="Button4_Click" />
+                    <asp:Button ID="Button5" runat="server" Text="Cancelar" OnClick="Button5_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

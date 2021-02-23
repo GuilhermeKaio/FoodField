@@ -1,0 +1,37 @@
+﻿.header-sites {
+    background-image: url(Imagens/Background_2.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+    height:100vh;
+}
+.filtro {
+    background-color:rgba(0,0,0,0.4);
+    height:100vh;
+}
+.content-site {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    background-color: #b5e5c8;
+}
+.img-site {
+    background-image: url(Imagens/Background_4.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+    padding-bottom: 400px;
+    padding-top: 400px;
+}
+.logo {
+   transform:translateY(40%);
+}
+.butao {
+    transform:translateY(200px);
+}
+.div_pad{
+    padding-bottom: 50px;
+}
